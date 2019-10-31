@@ -1,0 +1,42 @@
+﻿@using SkyOrder_Paup.Models
+@model Hrana
+@{
+
+    ViewBag.Title = "Detalji Hrana";
+}
+
+<h2>Detalji</h2>
+@Html.ActionLink("Povratak", "HranaPregled")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        a {
+            color: black;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+            a:hover {
+                background-color: #1a75ff;
+                text-decoration: none;
+                color: white;
+            }
+    </style>
+</head>
+    <body>
+        <div style="text-align:center">
+            <h3>@Model.naziv</h3>
+            <p>
+                Id: @Model.id_hrana<br>            
+                Naziv: @Model.naziv<br>
+                Opis: @Model.opis<br>
+
+
+            </p>
+            </divstyle="text-align:center">
+    </body>
+</html>
+

@@ -1,0 +1,40 @@
+﻿@using SkyOrder_Paup.Models
+@model Restoran
+@{
+      ViewBag.Title = "Detalji Restoran";
+}
+
+<h2>DetaljiRestoran</h2>
+@Html.ActionLink("Povratak", "RestoraniPregled")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        a {
+            color: black;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+            a:hover {
+                background-color: #1a75ff;
+                text-decoration: none;
+                color: white;
+            }
+    </style>
+</head>
+    <body>
+        <div style="text-align:center">
+            <h3>@Model.naziv</h3>
+            <p>
+                Id: @Model.id_restoran<br>
+                Lokacija: @Model.adresa<br>
+                E-mail: @Model.mail<br>
+                Telefonski broj: @Model.kontakt<br>
+
+            </p>
+        </divstyle="text-align:center">
+    </body>
+</html>

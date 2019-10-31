@@ -1,0 +1,38 @@
+﻿@using SkyOrder_Paup.Models
+@model Restoran
+@{
+
+        ViewBag.Title = "ObrisiRestoran";
+    }
+<html>
+<head>
+    <style>
+        a {
+            color: black;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+            a:hover {
+                background-color: #1a75ff;
+                text-decoration: none;
+                color: white;
+            }
+    </style>
+</head>
+    <body>
+        <h2>Obrisi Restoran</h2>
+        <div style="text-align:center">
+
+            <h3>Da li ste sigurni da želite obrisati restoran @Model.naziv?</h3>
+            @using(Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Obriši" />
+                @Html.ActionLink("Povratak bez brisanja", "RestoraniPregled")
+            }
+
+        </div>
+
+    </body> 
+</html>

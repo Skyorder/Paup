@@ -1,0 +1,31 @@
+﻿@using SkyOrder_Paup.Models
+@model RestoranDb
+@{
+    ViewBag.Title = "Restorani";
+}
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <div>
+            <h2>Popis restorana</h2>
+            <table class="table">
+                <tr>
+                    <th>Naziv</th>
+                    <th>Lokacija</th>
+                    <th>Kontakt</th>
+                    <th>Meni</th>
+                </tr>
+                @foreach (Restoran r in Model.VratiRestoran())
+                {
+                    <tr>
+                        <td>@r.naziv</td>
+                        <td>@r.adresa</td>
+                        <td>@r.kontakt</td>
+                        <td>@Html.ActionLink("Meni", "Meni", new {Id = r.id_restoran })</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </body>
+</html>

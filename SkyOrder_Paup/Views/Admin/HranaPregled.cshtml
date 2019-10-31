@@ -1,0 +1,46 @@
+﻿@using SkyOrder_Paup.Models
+@{
+    ViewBag.Title = "HranaPregled";
+}
+
+<h2>Hrana Pregled</h2>
+@Html.ActionLink("Povratak", "index")
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        a {
+            color: black;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+            a:hover {
+                background-color: #1a75ff;
+                text-decoration: none;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <table class="table" style="margin-top: 10px;">
+            <tr>
+                <th>Naziv</th>
+                <th>Opis</th>
+                <th>Funkcije</th>
+            </tr>
+            @foreach (Hrana r in Model.VratiHranu())
+            {
+                <tr>
+                    <td>@r.naziv</td>
+                    <td>@r.opis</td>
+                    <td><span>@Html.ActionLink("Obriši", "ObrisiHrana", new { Id = r.id_hrana })</span> | <span>@Html.ActionLink("Ažuriraj", "AzurirajHrana", new { Id = r.id_hrana })</span></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+

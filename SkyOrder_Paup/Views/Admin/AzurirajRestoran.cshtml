@@ -1,0 +1,56 @@
+﻿@using SkyOrder_Paup.Models
+@model Restoran
+@{
+    ViewBag.Title = "Azuriraj Restoran";
+}
+<style>
+    a {
+        color: black;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+        a:hover {
+            background-color: #1a75ff;
+            text-decoration: none;
+            color: white;
+        }
+</style>
+<h2>@ViewBag.Title</h2>
+@Html.ActionLink("Povratak bez promjena", "RestoraniPregled")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <tr>
+            <td>@Html.LabelFor(r => r.id_restoran)</td>
+            <td>@Html.TextBoxFor(r => r.id_restoran, new { disabled = true })</td>
+        <tr>
+        <tr>
+            <td>@Html.LabelFor(r => r.naziv)</td>
+            <td>@Html.TextBoxFor(r => r.naziv)</td>
+            <td>@Html.ValidationMessageFor(r => r.naziv)</td>
+        <tr>
+        <tr>
+            <td>@Html.LabelFor(r => r.adresa)</td>
+            <td> @Html.TextBoxFor(r => r.adresa)</td>
+            <td>@Html.ValidationMessageFor(r => r.adresa)</td>
+        <tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.kontakt)</td>
+            <td>@Html.TextBoxFor(r => r.kontakt)</td>
+            <td>@Html.ValidationMessageFor(r => r.kontakt)</td>
+        <tr>
+        <tr>
+            <td>@Html.LabelFor(r => r.mail)</td>
+            <td>@Html.TextBoxFor(r => r.mail)</td>
+            <td>@Html.ValidationMessageFor(r => r.mail)</td>
+        <tr>
+
+    </table>
+    <p>@Html.ValidationSummary(true, "Spremanje nije uspjelo.")</p>
+    <p><input type="submit" value="Spremi" /></p>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

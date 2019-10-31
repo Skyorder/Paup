@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "index";
+}
+<head>
+    <style>
+        a {
+            color: black;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+            a:hover {
+                background-color: #1a75ff;
+                text-decoration: none;
+                color: white;
+            }
+    </style>
+</head>
+<h2>Pozdrav</h2>
+<div class="container">
+    <table class="table">
+        <tr>
+            <td><h3>Restorani</h3></td>
+            <td><h3>@Html.ActionLink("Pregled", "RestoraniPregled")</h3></td>
+        </tr>
+        <tr>
+            <td><h3>Korisnici</h3></td>
+            <td><h3>@Html.ActionLink("Pregled", "KorisniciPregled")</h3></td>
+        </tr>
+        <tr>
+            <td><h3>Hrana</h3></td>
+            <td><h3>@Html.ActionLink("Pregled", "HranaPregled")</h3></td>
+        </tr>
+    </table>
+</div>

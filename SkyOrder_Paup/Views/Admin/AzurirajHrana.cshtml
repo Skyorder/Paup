@@ -1,0 +1,51 @@
+﻿@using SkyOrder_Paup.Models
+@model Hrana
+@{
+                /**/
+
+                /**/
+
+                ViewBag.Title = "AzurirajHrana";
+}
+
+<style>
+    a {
+        color: black;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+        a:hover {
+            background-color: #1a75ff;
+            text-decoration: none;
+            color: white;
+        }
+</style>
+<h2>Azuriraj</h2>
+
+@Html.ActionLink("Povratak bez promjena", "HranaPregled")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <tr>
+            <td>@Html.LabelFor(r => r.id_hrana)</td>
+            <td>@Html.TextBoxFor(r => r.id_hrana, new { disabled = true })</td>
+        <tr>
+        <tr>
+            <td>@Html.LabelFor(r => r.naziv)</td>
+            <td>@Html.TextBoxFor(r => r.naziv)</td>
+            <td>@Html.ValidationMessageFor(r => r.naziv)</td>
+        <tr>
+        <tr>
+            <td>@Html.LabelFor(r => r.opis)</td>
+            <td> @Html.TextBoxFor(r => r.opis)</td>
+            <td>@Html.ValidationMessageFor(r => r.opis)</td>
+        <tr>
+    </table>
+    <p>@Html.ValidationSummary(true, "Spremanje nije uspjelo.")</p>
+    <p><input type="submit" value="Spremi" /></p>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

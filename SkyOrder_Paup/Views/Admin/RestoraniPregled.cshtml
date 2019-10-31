@@ -1,0 +1,46 @@
+﻿@using SkyOrder_Paup.Models
+@model RestoranDb
+@{
+    ViewBag.Title = "Restorani Pregled";
+}
+<h2>Popis restorana</h2>
+@Html.ActionLink("Povratak", "index") @Html.ActionLink("Dodaj Restoran", "AzurirajRestoran")
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        a {
+            color: black;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+            a:hover {
+                background-color: #1a75ff;
+                text-decoration: none;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <table class="table" style="margin-top: 10px;">
+            <tr>
+                <th>Naziv</th>
+                <th>Lokacija</th>
+                <th>Kontakt</th>
+                <th>Funkcije</th>
+            </tr>
+            @foreach (Restoran r in Model.VratiRestoran())
+            {
+                <tr>
+                    <td>@r.naziv</td>
+                    <td>@r.adresa</td>
+                    <td>@r.kontakt</td>
+                    <td><span>@Html.ActionLink("Obriši", "ObrisiRestoran", new { Id = r.id_restoran })</span> | <span>@Html.ActionLink("Ažuriraj", "AzurirajRestoran", new { Id = r.id_restoran })</span> | <span>@Html.ActionLink("Detaljnije", "DetaljiRestoran", new { Id = r.id_restoran })</span></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

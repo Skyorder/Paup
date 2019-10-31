@@ -1,0 +1,28 @@
+﻿@using SkyOrder_Paup.Models
+@model MeniDb
+@{
+    ViewBag.Title = "Meni";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        <h2>Meni</h2>
+        <table class="table">
+            <tr>
+                <th>Naziv</th>
+                <th>Cijena</th>
+            </tr>
+            @foreach (Meni m in Model.VratiMani())
+            {
+            <tr>
+                <td>@m.naziv</td>
+                <td>@m.cijena</td>
+                <td>Dodaj u košaricu</td>
+            </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
